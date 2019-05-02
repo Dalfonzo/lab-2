@@ -19,17 +19,20 @@ public class Laboratorio_1 {
     }
     
     public static void msjRitmoCard(boolean value) {
-      
+         
+
         if (value)
             System.out.println("El deportista puede hacer ejercicios");
         else
-            System.out.println("Debido a su condición física, no puede realizar ejercicios"); 
+            System.out.println("No puede realizar ejercicios"); 
     
     }
     
     public static void llenarVarGlobales(Persona per, Scanner read, String nombre, int edad, char sexo, float peso, float altura, float ritmoCard, String frecEntr, String tipoEjer, int experiencia, String especialidad){
-        
-           System.out.println("Inserte nombre: ");
+            String[] EjOp={"tonificación", "reducción de peso", "reducción de medidas", "cardio", "pesas","flexibilidad y equilibrio", "relajación"};
+            int op=0;
+            
+            System.out.println("Inserte nombre: ");
             nombre = read.nextLine();
 
             System.out.println("Inserte edad: ");
@@ -60,9 +63,27 @@ public class Laboratorio_1 {
             } while(!frecEntr.equals("diario") && !frecEntr.equals("semanal"));
             
            
-            /*TODO switch tipo de ejercicio*/
+           
             System.out.println("Indique el tipo de ejercicio que realiza");
-            tipoEjer = read.nextLine().toLowerCase();
+            System.out.println("Seleccione una opción");
+            
+            for(int i=0;i<EjOp.length; i++){
+                System.out.println("Opcion "+ i + ". "+EjOp[i]);
+            }
+            
+            System.out.println("Opcion -1. Introducir su propio tipo de entrenamiento ");
+            
+            op = read.nextInt();
+            
+            if(op>=0 && op<=EjOp.length){
+                
+                 tipoEjer= EjOp[op];
+                
+            } else {
+                System.out.println("Introduzca su tipo de ejercicio");
+                read.nextLine();
+                tipoEjer = read.nextLine().toLowerCase();
+            }
             
             
             if(per instanceof Entrenador){
@@ -99,9 +120,10 @@ public class Laboratorio_1 {
         Deportista depor1= new Deportista();
         Entrenador entre1 = new Entrenador();
         
+        System.out.println("Rellene los datos del deportista 2: ");
         llenarVarGlobales(depor1,read,nombre,edad,sexo,peso,altura,ritmoCard,frecEntr,tipoEjer,experiencia,especialidad);
         
-        System.out.println("Rellene los datos del deportista 2: ");
+        
         Deportista depor2= new Deportista(ritmoCard, frecEntr, tipoEjer, 0 , nombre,edad, sexo, peso, altura, "");
         
         /*Chequear si puede hacer ejercicio*/
@@ -109,6 +131,9 @@ public class Laboratorio_1 {
         
         /*Revisar grasa corporal*/
         msjPeso(depor2.calcularIMC());
+        
+        
+        read.nextLine();
         
         System.out.println("Rellene los datos del entrenador 2:");
         llenarVarGlobales(entre1,read,nombre,edad,sexo,peso,altura,ritmoCard,frecEntr,tipoEjer,experiencia,especialidad);     

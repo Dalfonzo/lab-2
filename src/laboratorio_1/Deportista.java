@@ -30,7 +30,7 @@ public class Deportista extends Persona {
     }
          
     public boolean calcRitmoCard(){
-        return !(this.ritmoCard>=100);
+        return (this.ritmoCard>=100);
     }
 
     public String getTipoEj() {
