@@ -18,8 +18,6 @@ public class Entrenador extends Persona{
         this.experiencia = experiencia;
         this.especialidad = especialidad;
     }
-    
-    
 
     public Entrenador() {
         this.experiencia = 0;
@@ -28,25 +26,21 @@ public class Entrenador extends Persona{
     
     public void determinarRutina(int grasaCorpo, String tipoEjer){
         
-        if(grasaCorpo==-1)
+        if(grasaCorpo == -1)
             System.out.println("Yoga");
-        else if(grasaCorpo==0)
+        else if(grasaCorpo == 0)
             System.out.println("Bailoterapia");
         else 
-            System.out.println("Cardio");
-                     
+            System.out.println("Cardio");               
     }
     
     public void determinarRutina(String tipoEjer, int grasaCorpo){
         
-        if(grasaCorpo==-1)
+        if(grasaCorpo == -1)
             System.out.println("Meditacion");
-        else if(grasaCorpo==0)
+        else if(grasaCorpo == 0)
             System.out.println("Pesas");
         else 
-            System.out.println("Spinning");
-                     
+            System.out.println("Spinning");                
     }
-
-   
 }
